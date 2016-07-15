@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86,armeabi-v7a"
+    api-level="19"
+    density="xhdpi"
+    format="7"
+    timestamp="77006765039777" >
+
+    <task
+        name="javac"
+        duration="1802" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="3139" />
+    <task
+        name="verifier"
+        duration="256" />
+
+    <artifact
+        location="D:\Android\TA WORKSPACE\StreamingRadioBandung\vitamio-sample\build\outputs\apk\vitamio-sample-debug.apk"
+        type="MAIN" />
+
+    <build timestamp="77006765039777" >
+        <artifact
+            location="D:\Android\TA WORKSPACE\StreamingRadioBandung\vitamio-sample\build\outputs\apk\vitamio-sample-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>

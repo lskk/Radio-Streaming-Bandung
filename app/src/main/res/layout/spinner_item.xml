@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="HYNRACOM FM"
+    android:textStyle="bold"
+    android:textColor="@android:color/white"
+    android:gravity="center_horizontal"
+    style="@style/Base.TextAppearance.AppCompat.Large"
+    android:layout_marginBottom="5dp"
+    />

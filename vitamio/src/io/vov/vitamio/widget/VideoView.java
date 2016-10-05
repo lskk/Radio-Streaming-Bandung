@@ -96,7 +96,6 @@ public class VideoView extends SurfaceView implements MediaController.MediaPlaye
   OnPreparedListener mPreparedListener = new OnPreparedListener() {
     public void onPrepared(MediaPlayer mp) {
       Log.d("onPrepared");
-
 			mCurrentState = STATE_PREPARED;
 			// mTargetState = STATE_PLAYING;
 
@@ -434,14 +433,7 @@ public class VideoView extends SurfaceView implements MediaController.MediaPlaye
 			mMediaPlayer.setOnInfoListener(mInfoListener);
 			mMediaPlayer.setOnSeekCompleteListener(mSeekCompleteListener);
 			mMediaPlayer.setOnTimedTextListener(mTimedTextListener);
-			
-			Log.d(" set user optional --------  ");
-			HashMap<String, String> options = new HashMap<String, String>();
-			options.put("rtsp_transport", "tcp"); // udp
-		//	options.put("user-agent", "userAgent");
-		//	options.put("cookies", "cookies");
-			options.put("analyzeduration", "1000000");
-			mMediaPlayer.setDataSource(mContext, mUri, mHeaders);
+            mMediaPlayer.setDataSource(mContext, mUri, mHeaders);
 
 			mMediaPlayer.setDisplay(mSurfaceHolder);
 			mMediaPlayer.setBufferSize(mBufSize);

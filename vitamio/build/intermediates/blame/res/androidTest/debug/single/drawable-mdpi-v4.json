@@ -1,6 +1,10 @@
 [
     {
-        "merged": "D:\\Android\\TA WORKSPACE\\StreamingRadioBandung\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\ic_launcher.png",
-        "source": "D:\\Android\\TA WORKSPACE\\StreamingRadioBandung\\vitamio\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\ic_launcher.png"
+        "merged": "/Users/arysetijadiprihatmanto/AndroidStudioProjects/MyRadio-master/vitamio/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/ic_launcher.png",
+        "source": "/Users/arysetijadiprihatmanto/AndroidStudioProjects/MyRadio-master/vitamio/build/intermediates/bundles/debug/res/drawable-mdpi-v4/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/arysetijadiprihatmanto/AndroidStudioProjects/Radio-Streaming/vitamio/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/ic_launcher.png",
+        "source": "/Users/arysetijadiprihatmanto/AndroidStudioProjects/Radio-Streaming/vitamio/build/intermediates/bundles/debug/res/drawable-mdpi-v4/ic_launcher.png"
     }
 ]

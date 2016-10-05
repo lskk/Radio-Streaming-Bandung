@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center" >
+
+    <TextView
+        android:id="@+id/exit_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:gravity="center|center_horizontal"
+        android:text="@string/exit_title"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/exit_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="25sp"
+        android:layout_below="@id/exit_title"
+        android:layout_marginLeft="10dp"
+        android:text="@string/exit_txt"
+        android:textColor="@android:color/black"
+        android:textSize="15sp" />
+
+    <RelativeLayout
+        android:id="@+id/divider_one"
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_below="@id/exit_txt"
+        android:background="#D1D1D1" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/divider_one"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_btn_select"
+            android:text="@string/cancel" />
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#D1D1D1" />
+
+        <Button
+            android:id="@+id/mini"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_btn_select"
+            android:text="@string/mini" />
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#D1D1D1" />
+
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_btn_select"
+            android:text="@string/confirm" />
+    </LinearLayout>
+
+</RelativeLayout>

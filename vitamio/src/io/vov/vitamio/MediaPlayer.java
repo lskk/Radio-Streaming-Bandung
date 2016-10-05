@@ -314,11 +314,12 @@ public class MediaPlayer {
     else{
     	LIB_ROOT = Vitamio.getLibraryPath();
     }
-    
     try {
+    
+  
     load_lib(  LIB_ROOT ,  "libstlport_shared.so");
     load_lib(  LIB_ROOT ,  "libvplayer.so");
-      loadFFmpeg_native_lib( LIB_ROOT , "libffmpeg.so");    
+    loadFFmpeg_native_lib( LIB_ROOT , "libffmpeg.so");    
       boolean vvo_loaded = false;
       if (Build.VERSION.SDK_INT > 8)
         vvo_loaded = loadVVO_native_lib( LIB_ROOT ,  "libvvo.9.so");

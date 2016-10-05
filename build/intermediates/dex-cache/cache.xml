@@ -2,151 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/com.android.support-appcompat-v7-23.3.0_4c3442c8a4b0a6f754fd06afd9238a58d36a87f4.jar" />
+        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/MyRadio-master/app/libs/nineoldandroids-2.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a43cf9e271b5bc564e880a0a4be63ab9c69c97f8">
+        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/MyRadio-master/app/build/intermediates/transforms/dex/debug/folders/1000/2/nineoldandroids-2.4.0_784c53ed5da70992d8513baf46c09be3bfd6f111/classes.dex" />
     </item>
     <item
-        jar="/Users/arysetijadiprihatmanto/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.0.2/f8d87f15b94b8d74e7ccf61d7eedb558811cdb30/converter-gson-2.0.2.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="f8d87f15b94b8d74e7ccf61d7eedb558811cdb30">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/converter-gson-2.0.2_b2b323dd7f2db29efee741fbf020dc169f0cc952.jar" />
+        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/MyRadio-master/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="823321b61251db1fd6742c1e556d8f71b4ffae8b">
+        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/MyRadio-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_5268dd91d35431dbc047c10a96bedc310f06755b/classes.dex" />
     </item>
     <item
-        jar="/Users/arysetijadiprihatmanto/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/picasso-2.5.2_773ba1a1851d076c59668ac79bb52bd70e2a3843.jar" />
+        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/MyRadio-master/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="cd01ade6240e97afd28e854c3087517cf2fff254">
+        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/MyRadio-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_69d176a9aa971a8f4011b900de95039b5907d700/classes.dex" />
     </item>
     <item
-        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/internal_impl-23.3.0_699c368fb89a1094b7bc3e2f410c68e7c4ee791e.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.6.1/b9d63507329a7178e026fc334f87587ee5070ac5/gson-2.6.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="b9d63507329a7178e026fc334f87587ee5070ac5">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/gson-2.6.1_0990bb6118c2e04554c81bf74d2c6610df035599.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/support-annotations-23.3.0_f5749834fe117df69ed8a934b95ecd9fdc8002ec.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/exploded-aar/com.android.support/design/23.3.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/com.android.support-design-23.3.0_f35a2b727b765c82cd4cca1764ff60336dfe902f.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/exploded-aar/com.mikepenz/community-material-typeface/1.5.54.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="c60f5b1fdc975549a9339e1796799fc7c94a1f58">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/com.mikepenz-community-material-typeface-1.5.54.1_72bd3bf4e2eca17ba310f7d62b964a95cc3af34b.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="031e8b3ab2df4ab43b1017f84417d7e10dfbb8d2">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/de.hdodenhof-circleimageview-2.0.0_7f6949eb1f6f27a0d47459a9d8d01446d44ca5d4.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/exploded-aar/com.mikepenz/iconics-core/2.5.11/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="98a135c7935e62ac041acc1fcb148973bde828d5">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/com.mikepenz-iconics-core-2.5.11_0bbd828cb470f6ebe3548edd5bd9b893220e8691.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.0.2/43eeae0b9fb087bb3194ba59ab63a38a32fbf3e/retrofit-2.0.2.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="043eeae0b9fb087bb3194ba59ab63a38a32fbf3e">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/retrofit-2.0.2_f280900d3d9f4f89ec1fb0003b037850b8124735.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/com.android.support-support-vector-drawable-23.3.0_094832fa257b7ec995028cfb09b55cb8906402b0.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/com.android.support-animated-vector-drawable-23.3.0_1e9acc30ff8cfdabba6770f133208e9b2786efa8.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/exploded-aar/com.minimize.library/seekbar-compat/0.2.5/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1f51116cc8c541176c8c82565efed408fc6827bd">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/com.minimize.library-seekbar-compat-0.2.5_2fc0a45631fb26fe68ddfaed15b0c48a59389eb4.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/.gradle/caches/modules-2/files-2.1/org.greenrobot/eventbus/3.0.0/ddd99896e9569eaababbe81b35d80e1b91c4ad85/eventbus-3.0.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="ddd99896e9569eaababbe81b35d80e1b91c4ad85">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/eventbus-3.0.0_cfe2a09274c2246ff1486aaa1768ac2fd91cc03a.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="98476622f10715998eacf9240d6b479f12c66143">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/okio-1.6.0_afcb797c31f9e964376d7be145fb45ab0d845fc0.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.2.0/f7873a2ebde246a45c2a8d6f3247108b4c88a879/okhttp-3.2.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/okhttp-3.2.0_03cd8fb66552c2f0846837ca0a13e23daeb39b9d.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/com.android.support-support-v4-23.3.0_963b25f9e725f779ca401eb778954a3c65026558.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.3.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="debf30ce0a7560396b6235edef77e447006454c2">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/com.android.support-recyclerview-v7-23.3.0_4d2eee86c54599905a5805667ce8bd69a7e3c7a1.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/libs/retrofit-2.0.0-beta2.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="880d9e0997b2d1bfc98e0d121ced33ee5d04aac4">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/retrofit-2.0.0-beta2_9df95e03af395b71baf74791c900c863b121975b.jar" />
-    </item>
-    <item
-        jar="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/exploded-aar/com.commit451/NativeStackBlur/1.0.2/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="41c55d6455340eed6df1ca4b7e13162e2eb20295">
-        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/StreamingRadioBandung/app/build/intermediates/pre-dexed/release/com.commit451-NativeStackBlur-1.0.2_23cd4871c7380b858cc7e286e23f948b0d081e8a.jar" />
+        jar="/Users/arysetijadiprihatmanto/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="/Users/arysetijadiprihatmanto/AndroidStudioProjects/MyRadio-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-v4-19.1.0_32bc27e1c90282cf3f4ede2fa282e797dc1c4d23/classes.dex" />
     </item>
 
 </items>

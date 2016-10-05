@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name = "radio_info">
+            <item> Mustang FM </item>
+            <item>http://live.indostreamserver.com:8800/mustang</item>        
+            <item> Mersi FM</item>
+            <item>http://mersifm939.myradio.web.id:8888/mersifm939</item>
+            <item> Bodeh FM </item>
+            <item>http://scg.streamingmurah.com:8022/stream</item>
+        </string-array>
+</resources>

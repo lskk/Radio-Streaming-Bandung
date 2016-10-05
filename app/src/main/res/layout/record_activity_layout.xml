@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
+
+    <RelativeLayout
+        android:id="@+id/RecordTitle"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#ffffff" >
+
+        <Button
+            android:id="@+id/RecordActivityBack"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/pull_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/record_title"
+            android:textColor="#00CED1"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/RecordOperation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingBottom="5dip"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip"
+        android:paddingTop="5dip" >
+
+        <Button
+            android:id="@+id/record_start"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_btn_select"
+            android:text="@string/record_start" />
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#D1D1D1" />
+
+        <Button
+            android:id="@+id/record_stop"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_btn_select"
+            android:text="@string/record_stop" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/RecordActivityList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/RecordOperation"
+        android:layout_below="@id/RecordTitle"
+        android:cacheColorHint="#00000000"
+        android:divider="@drawable/list_divider"
+        android:scrollbars="none" >
+    </ListView>
+
+</RelativeLayout>

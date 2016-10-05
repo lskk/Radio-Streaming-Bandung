@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/list_item_select" >
+
+    <ImageView
+        android:id="@+id/Record_List_Image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/record_list_image"
+        android:contentDescription="@string/contentDescription" />
+
+    <TextView
+        android:id="@+id/Record_List_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/Record_List_Image"
+        android:padding="10dip"
+        android:singleLine="true"
+        android:textColor="#ff1E90FF"
+        android:textSize="20sp" />
+
+</RelativeLayout>

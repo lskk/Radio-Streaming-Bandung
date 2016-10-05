@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.pptik.radiostreaming.view.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/MainDragLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="30dp"
+        android:paddingLeft="30dp"
+        android:paddingTop="50dp" >
+
+        <TextView
+            android:id="@+id/DragTitleImage"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/mylogo"
+            android:contentDescription="@string/contentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/DragTitleImage"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/DragTitleImage"
+            android:text="@string/menu_name"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/DragMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/mail"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />
+
+        <ListView
+            android:id="@+id/MainMenuList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/DragMail"
+            android:layout_below="@id/DragTitleImage"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="20dp"
+            android:cacheColorHint="#00000000"
+            android:divider="@null"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+    <org.pptik.radiostreaming.view.MyRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff" >
+
+        <RelativeLayout
+            android:id="@+id/MainTitle"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="#ffffff" >
+
+            <ImageView
+                android:id="@+id/MainImage"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:contentDescription="@string/contentDescription"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mylogo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/app_name"
+                android:textColor="#00CED1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/MainOpenLoveListDown"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/pull_down" />
+
+            <Button
+                android:id="@+id/MainOpenLoveListUp"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/pull_up"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/LoveListlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/MainTitle"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/myLoveText"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#ffffff"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/loveRadio"
+                android:textColor="#00CED1"
+                android:textSize="20sp" />
+
+            <ListView
+                android:id="@+id/MainLoveList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/myLoveText"
+                android:cacheColorHint="#00000000"
+                android:divider="@drawable/list_divider"
+                android:scrollbars="none" >
+            </ListView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/RadioOperation"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:addStatesFromChildren="true"
+            android:background="#ffffff"
+            android:gravity="bottom"
+            android:paddingBottom="5dip"
+            android:paddingLeft="20dip"
+            android:paddingRight="20dip"
+            android:paddingTop="5dip" >
+
+            <Button
+                android:id="@+id/RadioControll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/ic_play"
+                android:clickable="true" />
+
+            <org.pptik.radiostreaming.view.MarqueeText
+                android:id="@+id/RadioName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/RadioControll"
+                android:layout_alignBottom="@+id/RadioControll"
+                android:layout_toRightOf="@+id/RadioControll"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:text="@string/radio_name"
+                android:textColor="#00CED1"
+                android:textSize="25sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/Mainlistlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/RadioOperation"
+            android:layout_below="@id/LoveListlayout" >
+
+            <ListView
+                android:id="@+id/MainActivityList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="#00000000"
+                android:divider="@drawable/list_divider"
+                android:scrollbars="none" >
+            </ListView>
+        </RelativeLayout>
+    </org.pptik.radiostreaming.view.MyRelativeLayout>
+
+</org.pptik.radiostreaming.view.DragLayout>

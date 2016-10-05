@@ -1,6 +1,10 @@
 [
     {
-        "merged": "D:\\Android\\TA WORKSPACE\\StreamingRadioBandung\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\mediacontroller.xml",
-        "source": "D:\\Android\\TA WORKSPACE\\StreamingRadioBandung\\vitamio\\build\\intermediates\\bundles\\debug\\res\\layout\\mediacontroller.xml"
+        "merged": "/Users/arysetijadiprihatmanto/AndroidStudioProjects/Radio-Streaming/vitamio/build/intermediates/res/merged/androidTest/debug/layout/mediacontroller.xml",
+        "source": "/Users/arysetijadiprihatmanto/AndroidStudioProjects/Radio-Streaming/vitamio/build/intermediates/bundles/debug/res/layout/mediacontroller.xml"
+    },
+    {
+        "merged": "/Users/arysetijadiprihatmanto/AndroidStudioProjects/MyRadio-master/vitamio/build/intermediates/res/merged/androidTest/debug/layout/mediacontroller.xml",
+        "source": "/Users/arysetijadiprihatmanto/AndroidStudioProjects/MyRadio-master/vitamio/build/intermediates/bundles/debug/res/layout/mediacontroller.xml"
     }
 ]

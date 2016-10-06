@@ -8,9 +8,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -19,17 +21,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mikepenz.google_material_typeface_library.GoogleMaterial;
+import com.mikepenz.iconics.IconicsDrawable;
 import com.nineoldandroids.view.ViewHelper;
 
 import org.pptik.radiostreaming.R;
@@ -46,67 +54,40 @@ import org.pptik.radiostreaming.view.DragLayout.DragListener;
 import io.vov.vitamio.Vitamio;
 
 @SuppressLint("HandlerLeak")
-public class MainActivity extends AppCompatActivity implements OnClickListener, OnItemClickListener
-{
+public class MainActivity extends AppCompatActivity implements OnClickListener, OnItemClickListener {
     private ListView MainMenuList;
-    
     private ListView MainActivityList;
-    
-    private ListView MainLoveList;
-    
     private ImageView mImage;
-    
     private DragLayout mDragLayout;
-    
-    private RelativeLayout mLoveLayout;
-    
     private Button radioControll;
-    
-    private Button mOpenLoveListDown;
-    
-    private Button mOpenLoveListUp;
-    
     private TextView radioNameView;
-    
     private MainListAdapter mMainListAdapter;
-    
-    private LoveListAdapter mLoveListAdapter;
-    
     private RadioInfoChangeReceiver mReceiver = null;
-    
     private ArrayList<String> mMainRadioName = new ArrayList<String>();
-    
     private ArrayList<String> mMainRadioPath = new ArrayList<String>();
-    
-    private ArrayList<Radio> mLoveRadioList = new ArrayList<Radio>();
-    
-    private ArrayList<String> mLoveListName = new ArrayList<String>();
-    
-    private ArrayList<String> mLoveListPath = new ArrayList<String>();
-    
     private String RadioName;
-    
     private String RadioPath;
-    
     private boolean IsPlay = false;
-    
-    private DBManager mDBManager = null;
     private String TAG = getClass().getSimpleName();
     private Toolbar toolbar;
+    ImageView radioImage;
+    RotateAnimation anim;
+    ImageButton playBtn;
+    boolean isPlay;
+    TextView freqText, loadingText;
+    ImageButton next, pref;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Vitamio.isInitialized(this);
-
-
-    //    requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+        initPlayerView();
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_launcher);
+        toolbar.setNavigationIcon(new IconicsDrawable(this)
+                .icon(GoogleMaterial.Icon.gmd_view_stream)
+                .color(ContextCompat.getColor(this, R.color.colorLight))
+                .sizeDp(24));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -116,27 +97,42 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         radioNameView = (TextView)findViewById(R.id.RadioName);
         initDragLayout();
         initMainMenu();
-        initLoveListView();
         initMainListInfo();
         mMainListAdapter = new MainListAdapter(this, mMainRadioName, mMainRadioPath);
         MainActivityList.setAdapter(mMainListAdapter);
         radioControll.setOnClickListener(this);
         MainActivityList.setOnItemClickListener(this);
         initRadioService();
-        
     }
-    
+
+    private void initPlayerView() {
+        anim = new RotateAnimation(0.0f, 360.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        anim.setInterpolator(new LinearInterpolator());
+        anim.setRepeatCount(Animation.INFINITE);
+        anim.setDuration(9000);
+        radioImage = (ImageView)findViewById(R.id.radioImage);
+        playBtn = (ImageButton)findViewById(R.id.playBtn);
+        playBtn.setImageDrawable(new IconicsDrawable(MainActivity.this)
+                .icon(GoogleMaterial.Icon.gmd_play_circle_filled)
+                .color(Color.WHITE)
+                .sizeDp(34));
+        playBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RadioPlay();
+            }
+
+        });
+    }
+
     @Override
-    protected void onResume()
-    {
-        
+    protected void onResume() {
         super.onResume();
         initReceiver();
     }
     
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         mHandler.removeCallbacksAndMessages(null);
         super.onDestroy();
         stopService(new Intent(MainActivity.this, RadioPlayService.class));
@@ -148,8 +144,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     }
     
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK)
         {
             ExitDialog exitDialog = new ExitDialog(this, R.style.MyStyle);
@@ -162,69 +157,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         }
         
     }
+
+
     
-    private void initLoveListinfo()
-    {
-        if (mLoveListName != null)
-        {
-            mLoveListName.removeAll(mLoveListName);
-        }
-        if (mLoveListPath != null)
-        {
-            mLoveListPath.removeAll(mLoveListPath);
-        }
-        mDBManager = new DBManager(this);
-        mLoveRadioList = mDBManager.queryAll();
-        for (int i = 0; i < mLoveRadioList.size(); i++)
-        {
-            mLoveListName.add(mLoveRadioList.get(i).getName());
-            mLoveListPath.add(mLoveRadioList.get(i).getPath());
-        }
-        mDBManager.closeDB();
-    }
-    
-    private void initLoveListView()
-    {
-        mOpenLoveListDown = (Button)findViewById(R.id.MainOpenLoveListDown);
-        mOpenLoveListUp = (Button)findViewById(R.id.MainOpenLoveListUp);
-        mLoveLayout = (RelativeLayout)findViewById(R.id.LoveListlayout);
-        MainLoveList = (ListView)findViewById(R.id.MainLoveList);
-        mLoveListAdapter = new LoveListAdapter(this, mLoveListName);
-        MainLoveList.setAdapter(mLoveListAdapter);
-        MainLoveList.setOnItemClickListener(this);
-        mOpenLoveListDown.setOnClickListener(new View.OnClickListener()
-        {
-            
-            @Override
-            public void onClick(View v)
-            {
-                mOpenLoveListDown.setVisibility(View.GONE);
-                mOpenLoveListUp.setVisibility(View.VISIBLE);
-                mLoveLayout.setVisibility(View.VISIBLE);
-                MainActivityList.setVisibility(View.GONE);
-                initLoveListinfo();
-                mLoveListAdapter.notifyDataSetChanged();
-            }
-        });
-        mOpenLoveListUp.setOnClickListener(new View.OnClickListener()
-        {
-            
-            @Override
-            public void onClick(View v)
-            {
-                mOpenLoveListDown.setVisibility(View.VISIBLE);
-                mOpenLoveListUp.setVisibility(View.GONE);
-                mLoveLayout.setVisibility(View.GONE);
-                MainActivityList.setVisibility(View.VISIBLE);
-                initMainListInfo();
-                mMainListAdapter.notifyDataSetChanged();
-                
-            }
-        });
-    }
-    
-    private void initMainListInfo()
-    {
+    private void initMainListInfo() {
         if (mMainRadioName != null)
         {
             mMainRadioName.removeAll(mMainRadioName);
@@ -248,8 +184,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         
     }
     
-    private void initDragLayout()
-    {
+    private void initDragLayout() {
         mImage = (ImageView)findViewById(R.id.MainImage);
         mImage.setOnClickListener(new View.OnClickListener()
         {
@@ -283,8 +218,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         });
     }
     
-    private void shake()
-    {
+    private void shake() {
         mImage.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake));
     }
     
@@ -296,18 +230,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     }
     
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-    {
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (parent == MainActivityList)
         {
             RadioName = mMainRadioName.get(position);
             RadioPath = mMainRadioPath.get(position);
-            RadioPlay();
-        }
-        else if (parent == MainLoveList)
-        {
-            RadioName = mLoveListName.get(position);
-            RadioPath = mLoveListPath.get(position);
             RadioPlay();
         }
         else if (parent == MainMenuList)
@@ -325,26 +252,24 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         }
     }
     
-    private void initRadioService()
-    {
+    private void initRadioService() {
         Intent intent = new Intent(MainActivity.this, RadioPlayService.class);
         intent.setAction(RadioOperationInfo.RADIO_OPERATION_ACTION);
         startService(intent);
     }
     
-    private void RadioPlay()
-    {
+    private void RadioPlay() {
         Intent intent = new Intent();
         intent.setAction(RadioOperationInfo.RADIO_OPERATION_PLAY);
         intent.putExtra(RadioOperationInfo.RADIO_INFO_NAME, RadioName);
         intent.putExtra(RadioOperationInfo.RADIO_INFO_PATH, RadioPath);
         sendBroadcast(intent);
         Log.i(TAG, "Play Radio");
+        radioImage.startAnimation(anim);
         
     }
     
-    private void RadioStop()
-    {
+    private void RadioStop() {
         Intent intent = new Intent();
         intent.setAction(RadioOperationInfo.RADIO_OPERATION_STOP);
         intent.putExtra(RadioOperationInfo.RADIO_INFO_NAME, RadioName);
@@ -353,14 +278,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     }
     
     @Override
-    public void onClick(View v)
-    {
-        if (v == radioControll)
-        {
-            if (IsPlay == false)
-            {
-                if (RadioPath == null)
-                {
+    public void onClick(View v) {
+        if (v == radioControll) {
+            if (IsPlay == false) {
+                if (RadioPath == null) {
                     Toast.makeText(this, "Please select a radio station first", Toast.LENGTH_SHORT).show();
                 }
                 else
@@ -375,8 +296,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         }
     }
     
-    private void initReceiver()
-    {
+    private void initReceiver() {
         if (mReceiver != null)
         {
             unregisterReceiver(mReceiver);
@@ -389,8 +309,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         registerReceiver(mReceiver, inFilter);
     }
     
-    private class RadioInfoChangeReceiver extends BroadcastReceiver
-    {
+    private class RadioInfoChangeReceiver extends BroadcastReceiver {
         
         @Override
         public void onReceive(Context context, Intent intent)
@@ -410,12 +329,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             else if (RadioOperationInfo.RADIO_OPERATION_CHANGE.equals(intent.getAction()))
             {
                 radioNameView.setText("Loading Radio...");
-            }
-            else if (RadioOperationInfo.RADIO_LOVE_LIST_UPDATE.equals(intent.getAction()))
-            {
-                int position = intent.getIntExtra(RadioOperationInfo.RADIO_INFO_NUM, 0);
-                mLoveListName.remove(position);
-                mLoveListPath.remove(position);
             }
         }
         
@@ -461,7 +374,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     public boolean onOptionsItemSelected(final MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {
-            finish();
+            //finish();
+            mDragLayout.open();
         }
 
         return super.onOptionsItemSelected(item);

@@ -64,6 +64,7 @@
         android:background="#ffffff" >
 
         <RelativeLayout
+            android:visibility="gone"
             android:id="@+id/MainTitle"
             android:layout_width="match_parent"
             android:layout_height="55dp"
@@ -106,33 +107,64 @@
                 android:background="@drawable/pull_up"
                 android:visibility="gone" />
         </RelativeLayout>
+        <RelativeLayout
+            android:padding="10dp"
+            android:id="@+id/playerLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/colorPrimary"
+                android:layout_centerInParent="true"
+                />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:background="@drawable/bg_circle_white"
+                android:layout_centerInParent="true"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/radioImage"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:src="@drawable/myradio"
+                app:civ_border_width="8dp"
+                app:civ_border_color="@color/colorPrimary"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_media_previous"
+                android:id="@+id/pref"
+                android:padding="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_circle"
+                />
+            <ImageButton
+                android:id="@+id/next"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_media_next"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/bg_circle"
+                android:layout_centerVertical="true"
+                />
+            <ImageButton
+                android:id="@+id/playBtn"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:background="@drawable/bg_circle_transparent"
+                android:src="@android:drawable/ic_media_play"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/LoveListlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/MainTitle"
-            android:visibility="gone" >
-
-            <TextView
-                android:id="@+id/myLoveText"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="#ffffff"
-                android:gravity="center_horizontal|center_vertical"
-                android:text="@string/loveRadio"
-                android:textColor="#00CED1"
-                android:textSize="20sp" />
-
-            <ListView
-                android:id="@+id/MainLoveList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/myLoveText"
-                android:cacheColorHint="#00000000"
-                android:divider="@drawable/list_divider"
-                android:scrollbars="none" >
-            </ListView>
+            >
         </RelativeLayout>
 
         <RelativeLayout
@@ -180,7 +212,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/RadioOperation"
-            android:layout_below="@id/LoveListlayout" >
+            android:layout_below="@id/playerLayout" >
 
             <ListView
                 android:id="@+id/MainActivityList"

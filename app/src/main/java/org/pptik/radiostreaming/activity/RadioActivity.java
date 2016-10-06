@@ -197,6 +197,9 @@ public class RadioActivity extends AppCompatActivity implements AbsListView.OnSc
                        // preLast = lastItem;
                     }
                 }
+                if(firstVisibleItem == 0){
+                    appBarLayout.setExpanded(true);
+                }
         }
     }
 

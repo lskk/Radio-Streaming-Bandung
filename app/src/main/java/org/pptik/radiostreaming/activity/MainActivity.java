@@ -19,8 +19,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
@@ -28,24 +26,17 @@ import android.view.animation.RotateAnimation;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.nineoldandroids.view.ViewHelper;
-
 import org.pptik.radiostreaming.R;
-import org.pptik.radiostreaming.adapter.LoveListAdapter;
 import org.pptik.radiostreaming.adapter.MainListAdapter;
-import org.pptik.radiostreaming.database.DBManager;
 import org.pptik.radiostreaming.service.RadioPlayService;
-import org.pptik.radiostreaming.util.Radio;
 import org.pptik.radiostreaming.util.RadioOperationInfo;
 import org.pptik.radiostreaming.view.DragLayout;
 import org.pptik.radiostreaming.view.ExitDialog;
@@ -54,13 +45,11 @@ import org.pptik.radiostreaming.view.DragLayout.DragListener;
 import io.vov.vitamio.Vitamio;
 
 @SuppressLint("HandlerLeak")
-public class MainActivity extends AppCompatActivity implements OnClickListener, OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements OnItemClickListener {
     private ListView MainMenuList;
     private ListView MainActivityList;
     private ImageView mImage;
     private DragLayout mDragLayout;
-    private Button radioControll;
-    private TextView radioNameView;
     private MainListAdapter mMainListAdapter;
     private RadioInfoChangeReceiver mReceiver = null;
     private ArrayList<String> mMainRadioName = new ArrayList<String>();
@@ -74,8 +63,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     RotateAnimation anim;
     ImageButton playBtn;
     boolean isPlay;
-    TextView freqText, loadingText;
-    ImageButton next, pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,14 +80,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         getSupportActionBar().setHomeButtonEnabled(true);
         MainMenuList = (ListView)findViewById(R.id.MainMenuList);
         MainActivityList = (ListView)findViewById(R.id.MainActivityList);
-        radioControll = (Button)findViewById(R.id.RadioControll);
-        radioNameView = (TextView)findViewById(R.id.RadioName);
         initDragLayout();
         initMainMenu();
         initMainListInfo();
         mMainListAdapter = new MainListAdapter(this, mMainRadioName, mMainRadioPath);
         MainActivityList.setAdapter(mMainListAdapter);
-        radioControll.setOnClickListener(this);
         MainActivityList.setOnItemClickListener(this);
         initRadioService();
     }
@@ -119,7 +103,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         playBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RadioPlay();
+                if(isPlay == false) {
+                    RadioPlay();
+                }else {
+                    RadioStop();
+                }
             }
 
         });
@@ -259,42 +247,39 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     }
     
     private void RadioPlay() {
-        Intent intent = new Intent();
-        intent.setAction(RadioOperationInfo.RADIO_OPERATION_PLAY);
-        intent.putExtra(RadioOperationInfo.RADIO_INFO_NAME, RadioName);
-        intent.putExtra(RadioOperationInfo.RADIO_INFO_PATH, RadioPath);
-        sendBroadcast(intent);
-        Log.i(TAG, "Play Radio");
-        radioImage.startAnimation(anim);
+        if(RadioPath != null) {
+            Intent intent = new Intent();
+            intent.setAction(RadioOperationInfo.RADIO_OPERATION_PLAY);
+            intent.putExtra(RadioOperationInfo.RADIO_INFO_NAME, RadioName);
+            intent.putExtra(RadioOperationInfo.RADIO_INFO_PATH, RadioPath);
+            sendBroadcast(intent);
+            Log.i(TAG, "Play Radio");
+            radioImage.startAnimation(anim);
+            playBtn.setImageDrawable(new IconicsDrawable(MainActivity.this)
+                    .icon(GoogleMaterial.Icon.gmd_pause_circle_filled)
+                    .color(Color.WHITE)
+                    .sizeDp(34));
+            isPlay = true;
+        }else {
+            Toast.makeText(this, "Pilih radio", Toast.LENGTH_LONG).show();
+        }
         
     }
     
     private void RadioStop() {
+        playBtn.setImageDrawable(new IconicsDrawable(MainActivity.this)
+                .icon(GoogleMaterial.Icon.gmd_play_circle_filled)
+                .color(Color.WHITE)
+                .sizeDp(34));
+        isPlay = false;
+        radioImage.clearAnimation();
         Intent intent = new Intent();
         intent.setAction(RadioOperationInfo.RADIO_OPERATION_STOP);
         intent.putExtra(RadioOperationInfo.RADIO_INFO_NAME, RadioName);
         sendBroadcast(intent);
         Log.i(TAG, "Stop Radio");
     }
-    
-    @Override
-    public void onClick(View v) {
-        if (v == radioControll) {
-            if (IsPlay == false) {
-                if (RadioPath == null) {
-                    Toast.makeText(this, "Please select a radio station first", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    RadioPlay();
-                }
-            }
-            else
-            {
-                RadioStop();
-            }
-        }
-    }
+
     
     private void initReceiver() {
         if (mReceiver != null)
@@ -328,7 +313,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             }
             else if (RadioOperationInfo.RADIO_OPERATION_CHANGE.equals(intent.getAction()))
             {
-                radioNameView.setText("Loading Radio...");
+                //radioNameView.setText("Loading Radio...");
             }
         }
         
@@ -350,19 +335,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                     RadioName = tempRadioName;
                     if (IsPlay == true)
                     {
-                        radioNameView.setText(RadioName);
-                    }
-                }
-                
-                if (radioNameView.getText().toString().equals(RadioName))
-                {
-                    if (IsPlay == false)
-                    {
-                        radioControll.setBackgroundResource(R.drawable.ic_play);
-                    }
-                    else
-                    {
-                        radioControll.setBackgroundResource(R.drawable.ic_pause);
+                        //radioNameView.setText(RadioName);
                     }
                 }
             }

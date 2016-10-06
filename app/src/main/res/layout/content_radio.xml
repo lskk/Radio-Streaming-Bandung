@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.pptik.radiostreaming.view.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/MainDragLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:showIn="@layout/activity_radio"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.RadioActivity"
+    android:background="@drawable/background">
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="30dp"
+        android:paddingLeft="30dp"
+        android:paddingTop="50dp" >
+
+        <TextView
+            android:id="@+id/DragTitleImage"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/mylogo"
+            android:contentDescription="@string/contentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/DragTitleImage"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/DragTitleImage"
+            android:text="@string/menu_name"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/DragMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/mail"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />
+
+        <ListView
+            android:id="@+id/MainMenuList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/DragMail"
+            android:layout_below="@id/DragTitleImage"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="20dp"
+            android:cacheColorHint="#00000000"
+            android:divider="@null"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+        <org.pptik.radiostreaming.view.MyRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff" >
+
+
+        <RelativeLayout
+            android:id="@+id/Mainlistlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_below="@id/playerLayout" >
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:backgroundTint="@color/colorAccent"
+                android:layout_margin="10dp"
+                android:src="@android:drawable/ic_dialog_email"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:padding="10dp"
+                />
+            <ListView
+                android:layout_above="@id/show"
+                android:id="@+id/MainActivityList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="#00000000"
+                android:divider="@drawable/list_divider"
+                android:scrollbars="none" >
+            </ListView>
+        </RelativeLayout>
+    </org.pptik.radiostreaming.view.MyRelativeLayout>
+</org.pptik.radiostreaming.view.DragLayout>

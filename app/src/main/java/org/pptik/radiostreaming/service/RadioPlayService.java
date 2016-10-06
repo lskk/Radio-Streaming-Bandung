@@ -2,14 +2,12 @@ package org.pptik.radiostreaming.service;
 
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
-
 import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
@@ -83,22 +81,9 @@ public class RadioPlayService extends Service
         if (mMediaPlayer != null)
         {
             mMediaPlayer.stop();
-            mMediaPlayer.release();
-            mMediaPlayer.reset();
-            mMediaPlayer = null;
         }
     }
-    
-    private void NextRadioPlay()
-    {
-        if (mMediaPlayer != null)
-        {
-           //Todo:: handle next station
-            mMediaPlayer.pause();
 
-        }
-    }
-    
     private void FirstRadioPlay()
     {
         try
@@ -161,13 +146,11 @@ public class RadioPlayService extends Service
                     {
                         FirstRadioPlay();
                         ISFIRST = true;
-                        Log.i(TAG, "First Play");
                     }
                 }
                 else
                 {
-                    NextRadioPlay();
-                    Log.i(TAG, "Next Play");
+                    FirstRadioPlay();
                 }
             }
             else if (RadioOperationInfo.RADIO_OPERATION_STOP.equals(action))
@@ -215,8 +198,4 @@ public class RadioPlayService extends Service
             e.printStackTrace();
         }
     }
-
-
-
-
 }

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="org.pptik.radiostreaming.activity.RadioActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppThemeCompat.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            <RelativeLayout
+                android:padding="10dp"
+                android:id="@+id/playerLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:background="@drawable/bg_circle_white"
+                android:layout_centerInParent="true"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/radioImage"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:src="@drawable/myradio"
+                app:civ_border_width="8dp"
+                app:civ_border_color="@color/colorPrimary"/>
+            <ImageButton
+                android:id="@+id/playBtn"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:background="@drawable/bg_circle_transparent"
+                android:src="@android:drawable/ic_media_play"
+                android:layout_centerInParent="true"
+                />
+            </RelativeLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppThemeCompat.PopupOverlay" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_radio" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/hide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@color/colorAccent"
+        android:src="@android:drawable/ic_dialog_email"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end" />
+
+</android.support.design.widget.CoordinatorLayout>

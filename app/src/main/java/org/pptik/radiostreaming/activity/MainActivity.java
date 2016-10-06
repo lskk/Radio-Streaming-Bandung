@@ -4,7 +4,6 @@ package org.pptik.radiostreaming.activity;
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +11,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -44,7 +44,7 @@ import org.pptik.radiostreaming.view.DragLayout.DragListener;
 import io.vov.vitamio.Vitamio;
 
 @SuppressLint("HandlerLeak")
-public class MainActivity extends Activity implements OnClickListener, OnItemClickListener
+public class MainActivity extends AppCompatActivity implements OnClickListener, OnItemClickListener
 {
     private ListView MainMenuList;
     
@@ -100,7 +100,7 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
         Vitamio.isInitialized(this);
 
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+    //    requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main_activity_layout);
         MainMenuList = (ListView)findViewById(R.id.MainMenuList);
         MainActivityList = (ListView)findViewById(R.id.MainActivityList);

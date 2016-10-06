@@ -27,6 +27,7 @@ dependencies {
     compile 'com.mikepenz:google-material-typeface:2.2.0.1.original@aar'
     compile 'com.android.support:cardview-v7:23.3.0'
     compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile 'net.qiujuer.genius:ui:2.0.0-beta4'
     compile project(':vitamio')
 }
 

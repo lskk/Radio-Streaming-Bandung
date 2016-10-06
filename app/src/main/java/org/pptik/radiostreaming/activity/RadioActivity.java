@@ -8,8 +8,10 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -25,7 +27,7 @@ import org.pptik.radiostreaming.view.DragLayout;
 
 import java.util.ArrayList;
 
-public class RadioActivity extends AppCompatActivity {
+public class RadioActivity extends AppCompatActivity implements AbsListView.OnScrollListener {
 
     private DragLayout mDragLayout;
     private ListView MainMenuList;
@@ -39,6 +41,8 @@ public class RadioActivity extends AppCompatActivity {
     private boolean isExpand = false;
     private FloatingActionButton fShow, fHide;
     private RelativeLayout playerLayout;
+
+    private int preLast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +98,9 @@ public class RadioActivity extends AppCompatActivity {
     }
 
     private void setRelativeTouch(){
-        playerLayout.setOnTouchListener(new RelativeLayoutTouchListener(this, mDragLayout));
+        //appBarLayout.setOnTouchListener(new RelativeLayoutTouchListener(this, mDragLayout));
+        MainActivityList.setOnScrollListener(this);
+
     }
 
     private void setShowHide(){
@@ -164,6 +170,33 @@ public class RadioActivity extends AppCompatActivity {
             else {
                 mMainRadioPath.add(infos[i]);
             }
+        }
+    }
+
+
+    @Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+    }
+
+    @Override
+    public void onScroll(AbsListView lw, final int firstVisibleItem,
+                         final int visibleItemCount, final int totalItemCount)
+    {
+
+        switch(lw.getId())
+        {
+            case R.id.MainActivityList:
+                final int lastItem = firstVisibleItem + visibleItemCount;
+
+                if(lastItem == totalItemCount)
+                {
+                    if(preLast!=lastItem)
+                    {
+                        appBarLayout.setExpanded(false);
+                       // preLast = lastItem;
+                    }
+                }
         }
     }
 

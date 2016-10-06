@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.pptik.radiostreaming.R;
 import org.pptik.radiostreaming.database.DBManager;
 import org.pptik.radiostreaming.util.Radio;
 
@@ -71,7 +72,7 @@ public class MainListAdapter extends BaseAdapter
         ViewRadioName = mRadioName.get(position);
         viewRadioPath = mRadioPath.get(position);
         info = getInfo(ViewRadioName);
-        convertView = mInflater.inflate(org.pptik.radiostreaming.R.layout.main_list_adapter, null);
+        convertView = mInflater.inflate(R.layout.card_item, null);
         holder = new ViewHolder();
         holder.mLoveButton = (Button)convertView.findViewById(org.pptik.radiostreaming.R.id.mainLoveButton);
         holder.mDisloveButton = (Button)convertView.findViewById(org.pptik.radiostreaming.R.id.mainDisloveButton);

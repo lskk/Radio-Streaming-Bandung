@@ -1,8 +1,10 @@
 package org.pptik.radiostreaming.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -17,6 +19,7 @@ import com.mikepenz.iconics.IconicsDrawable;
 
 import org.pptik.radiostreaming.R;
 import org.pptik.radiostreaming.adapter.MainListAdapter;
+import org.pptik.radiostreaming.util.PictureFormatTransform;
 import org.pptik.radiostreaming.view.DragLayout;
 
 import java.util.ArrayList;
@@ -33,6 +36,7 @@ public class RadioActivity extends AppCompatActivity {
     private ArrayList<String> mMainRadioPath = new ArrayList<String>();
     private Toolbar toolbar;
     private boolean isExpand = false;
+    private FloatingActionButton fShow, fHide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,7 @@ public class RadioActivity extends AppCompatActivity {
         bindingXml();
         setListView();
         initDragLayout();
+        setShowHide();
     }
 
     private void setListView() {
@@ -72,6 +77,31 @@ public class RadioActivity extends AppCompatActivity {
         MainMenuList = (ListView)findViewById(R.id.MainMenuList);
         MainActivityList = (ListView)findViewById(R.id.MainActivityList);
         appBarLayout = (AppBarLayout)findViewById(R.id.app_bar);
+        fHide = (FloatingActionButton)findViewById(R.id.hide);
+        fShow = (FloatingActionButton)findViewById(R.id.show);
+        fHide.setImageBitmap(PictureFormatTransform.drawableToBitmap(new IconicsDrawable(this)
+                .icon(GoogleMaterial.Icon.gmd_keyboard_arrow_up)
+                .color(Color.WHITE)
+                .sizeDp(20)));
+        fShow.setImageBitmap(PictureFormatTransform.drawableToBitmap(new IconicsDrawable(this)
+                .icon(GoogleMaterial.Icon.gmd_keyboard_arrow_down)
+                .color(Color.WHITE)
+                .sizeDp(20)));
+    }
+
+    private void setShowHide(){
+        fHide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                appBarLayout.setExpanded(false);
+            }
+        });
+        fShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                appBarLayout.setExpanded(true);
+            }
+        });
     }
 
     private void initDragLayout() {

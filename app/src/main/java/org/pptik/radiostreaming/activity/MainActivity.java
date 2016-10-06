@@ -12,8 +12,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -90,7 +92,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     
     private DBManager mDBManager = null;
     private String TAG = getClass().getSimpleName();
-    
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -101,7 +104,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
 
     //    requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.main_activity_layout);
+        setContentView(R.layout.activity_main);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_launcher);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
         MainMenuList = (ListView)findViewById(R.id.MainMenuList);
         MainActivityList = (ListView)findViewById(R.id.MainActivityList);
         radioControll = (Button)findViewById(R.id.RadioControll);
@@ -448,4 +456,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             
         };
     };
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }

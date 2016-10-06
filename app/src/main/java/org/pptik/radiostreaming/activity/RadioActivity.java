@@ -13,13 +13,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
+import android.widget.RelativeLayout;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
 
 import org.pptik.radiostreaming.R;
 import org.pptik.radiostreaming.adapter.MainListAdapter;
 import org.pptik.radiostreaming.util.PictureFormatTransform;
+import org.pptik.radiostreaming.util.RelativeLayoutTouchListener;
 import org.pptik.radiostreaming.view.DragLayout;
 
 import java.util.ArrayList;
@@ -37,6 +38,7 @@ public class RadioActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private boolean isExpand = false;
     private FloatingActionButton fShow, fHide;
+    private RelativeLayout playerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,7 @@ public class RadioActivity extends AppCompatActivity {
         setListView();
         initDragLayout();
         setShowHide();
+        setRelativeTouch();
     }
 
     private void setListView() {
@@ -87,6 +90,11 @@ public class RadioActivity extends AppCompatActivity {
                 .icon(GoogleMaterial.Icon.gmd_keyboard_arrow_down)
                 .color(Color.WHITE)
                 .sizeDp(20)));
+        playerLayout = (RelativeLayout) findViewById(R.id.playerLayout);
+    }
+
+    private void setRelativeTouch(){
+        playerLayout.setOnTouchListener(new RelativeLayoutTouchListener(this, mDragLayout));
     }
 
     private void setShowHide(){
@@ -122,6 +130,7 @@ public class RadioActivity extends AppCompatActivity {
             {
                 MainMenuList.smoothScrollToPosition(0);
                 appBarLayout.setExpanded(false);
+                isExpand = true;
             }
 
             @Override
@@ -129,6 +138,7 @@ public class RadioActivity extends AppCompatActivity {
             {
               //  shake();
                 appBarLayout.setExpanded(true);
+                isExpand = false;
             }
 
             @Override
@@ -163,10 +173,8 @@ public class RadioActivity extends AppCompatActivity {
         if (id == android.R.id.home) {
             if(isExpand == false) {
                 mDragLayout.open();
-                isExpand = true;
             }else {
                 mDragLayout.close();
-                isExpand = false;
             }
         }
 
